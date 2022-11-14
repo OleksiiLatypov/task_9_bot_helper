@@ -76,6 +76,7 @@ command = {
 
 
 def main():
+    key_words = ['good bye', 'bye', 'close', 'thank you', 'exit']
     while True:
         user_input = input('User: ').lower()
         if user_input.split()[0] == 'hello':
@@ -88,10 +89,10 @@ def main():
             print(command[user_input.split()[0]](contacts, user_input))
         if user_input.split()[0] == 'phone':
             print(command[user_input.split()[0]](contacts, user_input))
-        if user_input.split()[0] not in command and user_input != 'show all':
+        if user_input.split()[0] not in command and user_input not in key_words and user_input != 'show all':
             print(wrong_input())
 
-        if user_input in ('good bye', 'bye', 'close', 'exit','thank you'):
+        if user_input in key_words:
             print(f'Bot: see you next time')
             break
 
